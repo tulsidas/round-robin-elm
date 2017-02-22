@@ -1,0 +1,7 @@
+.list-group {
+  /*max-width: 400px;*/
+}
+
+.list-group-item > button {
+  float:right;
+}

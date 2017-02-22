@@ -1,0 +1,18 @@
+{
+  "name": "round-robin",
+  "version": "0.0.0",
+  "description": "round robin generator",
+  "main": "index.js",
+  "scripts": {
+     "watch": "chokidar '**/*.elm' -c 'elm make Main.elm --output index.js' --initial"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tulsidas/round-robin-elm"
+  },
+  "author": "AndresQ",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/tulsidas/round-robin-elm/issues"
+  }
+}
