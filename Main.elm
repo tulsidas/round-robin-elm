@@ -1,6 +1,6 @@
 module Main exposing (..)
 
-import Html exposing (Html, Attribute, beginnerProgram, text, div, input, button, ul, li, strong, h1, h2, span, label)
+import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onInput, onClick)
 import String exposing (isEmpty)
@@ -16,7 +16,7 @@ type alias Model =
 initModel : Model
 initModel =
     { name = ""
-    , entrants = [ "a", "b", "c" ]
+    , entrants = []
     , round = 0
     }
 
@@ -95,12 +95,12 @@ entrantInputs model =
     div []
         [ div [ class "form-inline" ]
             [ div [ class "form-group" ]
-                [ label [ for "input" ]
-                    [ h2
-                        [ class "glyphicon glyphicon-user" ]
+                [ label [ for "nameInput" ]
+                    [ span
+                        [ class "glyphicon glyphicon-user", style [ ( "fontSize", "2em" ) ] ]
                         []
                     ]
-                , input [ class "input-lg", placeholder " ? ", onInput Name, value model.name ] []
+                , input [ id "nameInput", class "form-control input-lg", placeholder " ? ", onInput Name, value model.name ] []
                 ]
             , button [ class "btn btn-default btn-lg", onClick NewEntrant ]
                 [ span
@@ -146,10 +146,9 @@ showRounds model =
     in
         div []
             [ h1 [] [ text ("Round " ++ (toString model.round)) ]
-            , div [] [ text (toString model.entrants) ]
             , pairs
                 |> List.map showPair
-                |> div []
+                |> div [ class "entrants" ]
             , button [ class "btn btn-default btn-lg", onClick NextRound ]
                 [ span
                     [ class "glyphicon glyphicon-play" ]
@@ -179,7 +178,7 @@ cycle entrants =
 
 showPair : ( String, String ) -> Html msg
 showPair pair =
-    div []
+    div [ class "entrant" ]
         [ text (Tuple.first pair)
         , text " vs "
         , text (Tuple.second pair)
@@ -189,7 +188,7 @@ showPair pair =
 showFin : Html Msg
 showFin =
     div []
-        [ text "Fin"
+        [ h1 [] [ text "Fin" ]
         , button [ class "btn btn-default btn-lg", onClick Restart ]
             [ span
                 [ class "glyphicon glyphicon-repeat" ]

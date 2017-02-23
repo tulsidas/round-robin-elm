@@ -1,7 +1,33 @@
+body {
+  font-family: sans-serif;;
+}
+
+span.glyphicon {
+    vertical-align: middle;
+}
+
 .list-group {
   /*max-width: 400px;*/
 }
 
 .list-group-item > button {
-  float:right;
+  float: right;
+}
+
+.list-group-item  {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+.entrant  {
+  font-size: 2em;
+  text-transform: uppercase;
+  line-height: 2;
+}
+
+.entrant:first-child {
+  border-top: dotted 1px grey;
+}
+.entrant {
+  border-bottom: dotted 1px grey;
 }
